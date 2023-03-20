@@ -2,14 +2,14 @@ import React from 'react'
 
 // const MyHeading = (props) => {
 // after destructruing we can write above line as
-const MyHeading = ({name,text}) => {
+const MyHeading = ({name,text,price}) => {
   const a=232;
 
 const obj={
   abb:12,
   ccd:2323,
 };
-
+alert(price);
 //This is destructruing
 const{abb, ccd}=obj
 
@@ -17,6 +17,7 @@ const{abb, ccd}=obj
   return (
     <>
     <h1>{name}</h1>
+    <MyHeadingLittle value={price} />
     {/* <div>{b}</div> */}
     <div>{text}</div>
     <div>MyHeading</div>
@@ -31,7 +32,7 @@ const{abb, ccd}=obj
 }
 
 // ek component me ek se jayada bhi component bana sakte hai
-const MyHeadingLittle=() =><h4>My Little Heading</h4>;
+const MyHeadingLittle=({value}) =><h4>{value}</h4>;
 const MyHeadingLittle2=() =><h4>My Little Heading2</h4>;
 const MyHeadingLittle3=() =><h4>My Little Heading3</h4>;
 

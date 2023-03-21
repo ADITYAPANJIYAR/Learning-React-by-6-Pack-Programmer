@@ -1,26 +1,25 @@
-import MyHeading from "./components/MyHeading";
-import { MyHeadingLittle3} from "./components/MyHeading";
-import {MyHeadingLittle2 as MeracustomeName} from "./components/MyHeading";
+import Header from "./components/Header";
+import "./styles/App.css"
+import "./styles/Header.css"
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Product from './components/Product';
 
-//MyHeadingLittle2 ko import as karke import karna hota hai but
-//jo export deafault hai uske kisi bhi naam se import kar sakte hai
-//Example ke tor pe-> import MyHeading from "./components/MyHeading"; ko import Aise  from "./components/MyHeading"; bhi likh sakte hai.
-
-const a="ds32rfd";
 function App()
 {
-    return(
-    <>
-        <div>
-            <MyHeading name="Aditya" text="Nice one" price={999} />
-            <MeracustomeName />
-            <MyHeadingLittle3 />
-            
-            <h1>Welcome to react {a}</h1>
-            <p>paragraph</p>
-        </div>
-        <div>asda</div>
-    </>
-    );
+    return <Router>
+    <Header />
+    <Routes>
+    <Route path="/" element={<Home />}/>
+    <Route path="/about" element={<About />}/>
+    <Route path="/contact" element={<Contact />}/>
+    <Route path="/product/:id" element={<div>{<Product />}</div>}/>
+    <Route path="*" element= {<div>Page not found 404</div>} />
+    </Routes>
+
+
+    </Router>
 }
 export default App;
